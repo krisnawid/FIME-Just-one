@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bgcolor"
+    tools:context=".MainActivity">
+
+
+    <ImageView
+        android:id="@+id/bg_biodata"
+        android:layout_width="150dp"
+        android:layout_height="195dp"
+        android:onClick="handleBiodata"
+        app:layout_constraintBottom_toTopOf="@+id/guideline2"
+        app:layout_constraintEnd_toStartOf="@+id/guideline"
+        app:layout_constraintHorizontal_bias="0.696"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.94"
+        app:srcCompat="@color/cardhome" />
+
+    <ImageView
+        android:id="@+id/logo_biodata"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:onClick="handleBiodata"
+        app:layout_constraintBottom_toBottomOf="@+id/bg_biodata"
+        app:layout_constraintEnd_toEndOf="@+id/bg_biodata"
+        app:layout_constraintStart_toStartOf="@+id/bg_biodata"
+        app:layout_constraintTop_toTopOf="@+id/bg_biodata"
+        app:layout_constraintVertical_bias="0.40"
+        app:srcCompat="@mipmap/ic_user_foreground" />
+
+    <TextView
+        android:id="@+id/text_biodata"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:onClick="handleBiodata"
+        android:text="Biodata"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@+id/logo_biodata"
+        app:layout_constraintStart_toStartOf="@+id/logo_biodata"
+        app:layout_constraintTop_toBottomOf="@+id/logo_biodata" />
+
+    <ImageView
+        android:id="@+id/bg_pemasukan"
+        android:layout_width="150dp"
+        android:layout_height="195dp"
+        android:onClick="handlePemasukan"
+        app:layout_constraintBottom_toBottomOf="@+id/bg_biodata"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.3"
+        app:layout_constraintStart_toStartOf="@+id/guideline"
+        app:layout_constraintTop_toTopOf="@+id/bg_biodata"
+        app:layout_constraintVertical_bias="0.0"
+        app:srcCompat="@color/cardhome" />
+
+    <ImageView
+        android:id="@+id/logo_pemasukan"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:onClick="handlePemasukan"
+        app:layout_constraintBottom_toBottomOf="@+id/bg_pemasukan"
+        app:layout_constraintEnd_toEndOf="@+id/bg_pemasukan"
+        app:layout_constraintStart_toStartOf="@+id/bg_pemasukan"
+        app:layout_constraintTop_toTopOf="@+id/bg_pemasukan"
+        app:layout_constraintVertical_bias="0.40"
+        app:srcCompat="@mipmap/ic_inout_foreground" />
+
+    <TextView
+        android:id="@+id/text_pemasukan"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:onClick="handlePemasukan"
+        android:text='Pemasukan\n Pengeluaran '
+        android:textAlignment="center"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@+id/logo_pemasukan"
+        app:layout_constraintStart_toStartOf="@+id/logo_pemasukan"
+        app:layout_constraintTop_toBottomOf="@+id/logo_pemasukan" />
+
+    <ImageView
+        android:id="@+id/bg_cetak"
+        android:layout_width="150dp"
+        android:layout_height="195dp"
+        android:onClick="handleCetak"
+        app:layout_constraintBottom_toBottomOf="@+id/bg_laporan"
+        app:layout_constraintEnd_toEndOf="@+id/bg_pemasukan"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/bg_pemasukan"
+        app:layout_constraintTop_toTopOf="@+id/bg_laporan"
+        app:srcCompat="@color/cardhome" />
+
+    <ImageView
+        android:id="@+id/bg_laporan"
+        android:layout_width="150dp"
+        android:layout_height="195dp"
+        android:onClick="handleLaporan"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/bg_biodata"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/bg_biodata"
+        app:layout_constraintTop_toTopOf="@+id/guideline2"
+        app:layout_constraintVertical_bias="0.118"
+        app:srcCompat="@color/cardhome" />
+
+    <ImageView
+        android:id="@+id/logo_laporan"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:onClick="handleLaporan"
+        app:layout_constraintBottom_toBottomOf="@+id/bg_laporan"
+        app:layout_constraintEnd_toEndOf="@+id/bg_laporan"
+        app:layout_constraintStart_toStartOf="@+id/bg_laporan"
+        app:layout_constraintTop_toTopOf="@+id/bg_laporan"
+        app:layout_constraintVertical_bias="0.40"
+        app:srcCompat="@mipmap/ic_fime_foreground" />
+
+    <ImageView
+        android:id="@+id/logo_cetak"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:onClick="handleCetak"
+        app:layout_constraintBottom_toBottomOf="@+id/bg_cetak"
+        app:layout_constraintEnd_toEndOf="@+id/bg_cetak"
+        app:layout_constraintStart_toStartOf="@+id/bg_cetak"
+        app:layout_constraintTop_toTopOf="@+id/bg_cetak"
+        app:layout_constraintVertical_bias="0.40"
+        app:srcCompat="@mipmap/ic_print_foreground" />
+
+    <TextView
+        android:id="@+id/text_laporan"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:onClick="handleLaporan"
+        android:text="Laporan\nKeuangan"
+        android:textAlignment="center"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@+id/logo_laporan"
+        app:layout_constraintHorizontal_bias="0.50"
+        app:layout_constraintStart_toStartOf="@+id/logo_laporan"
+        app:layout_constraintTop_toBottomOf="@+id/logo_laporan" />
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:onClick="handleCetak"
+        android:text="Cetak\nLaporan"
+        android:textAlignment="center"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@+id/logo_cetak"
+        app:layout_constraintStart_toStartOf="@+id/logo_cetak"
+        app:layout_constraintTop_toBottomOf="@+id/logo_cetak" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.5" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.5" />
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp"
+    tools:context=".EditInputanActivity">
+
+    <ImageView
+        android:id="@+id/logo_inout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:layout_gravity="center"
+        android:src="@mipmap/ic_inout_foreground"/>
+
+    <EditText
+        android:id="@+id/edit_text_keterangan"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Input Keterangan"
+        android:layout_margin="8dp"
+        android:inputType="textMultiLine">
+    </EditText>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:orientation="horizontal"
+        android:layout_height="wrap_content">
+
+        <EditText
+            android:id="@+id/edit_text_tanggal"
+            android:layout_width="0dp"
+            android:layout_weight=".90"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
+            android:hint="Input Tanggal"
+            android:inputType="text">
+        </EditText>
+
+        <ImageView
+            android:id="@+id/ic_calendar"
+            android:layout_gravity="center_vertical"
+            android:layout_width="0dp"
+            android:layout_weight=".10"
+            android:onClick="handleCalender"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_date_range_black_24dp"/>
+
+    </LinearLayout>
+
+    <EditText
+        android:id="@+id/edit_text_pemasukan"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:hint="Input Pemasukan"
+        android:inputType="number">
+    </EditText>
+
+    <EditText
+        android:id="@+id/edit_text_pengeluaran"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:hint="Input Pengeluaran"
+        android:inputType="number">
+    </EditText>
+
+</LinearLayout>
