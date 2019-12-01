@@ -15,7 +15,7 @@ import com.sdkdroid.fime_just_one.data.Perusahaan.Perusahaan;
 import com.sdkdroid.fime_just_one.data.Perusahaan.PerusahaanDao;
 
 
-@Database(entities = {Perusahaan.class, Laporan.class}, version = 2, exportSchema = false)
+@Database(entities = {Perusahaan.class, Laporan.class}, version = 1, exportSchema = false)
 public abstract class FIMEAppDatabase extends RoomDatabase {
     private static FIMEAppDatabase instance;
 

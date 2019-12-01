@@ -15,9 +15,9 @@ public class Laporan {
     @PrimaryKey(autoGenerate = true)
     public int id_laporan;
 
-    int pemasukan;
+    double pemasukan;
 
-    int pengeluaran;
+    double pengeluaran;
 
     Date tanggal;
 
@@ -33,7 +33,7 @@ public class Laporan {
         this.judul = judul;
     }
 
-    public Laporan(String judul, int pemasukan, int pengeluaran, Date tanggal, String keterangan) {
+    public Laporan(String judul, double pemasukan, double pengeluaran, Date tanggal, String keterangan) {
         this.judul = judul;
         this.pemasukan = pemasukan;
         this.pengeluaran = pengeluaran;
@@ -49,7 +49,7 @@ public class Laporan {
         this.id_laporan = id_laporan;
     }
 
-    public int getPemasukan() {
+    public double getPemasukan() {
         return pemasukan;
     }
 
@@ -57,7 +57,7 @@ public class Laporan {
         this.pemasukan = pemasukan;
     }
 
-    public int getPengeluaran() {
+    public double getPengeluaran() {
         return pengeluaran;
     }
 

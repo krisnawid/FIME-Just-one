@@ -10,11 +10,16 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.sdkdroid.fime_just_one.R;
 
+import java.text.DecimalFormat;
+import java.text.DecimalFormatSymbols;
+import java.text.NumberFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Currency;
 import java.util.Date;
 import java.util.List;
+import java.util.Locale;
 
 public class LaporanAdapter extends RecyclerView.Adapter<LaporanAdapter.LaporanHolder> {
 
@@ -46,9 +51,16 @@ public class LaporanAdapter extends RecyclerView.Adapter<LaporanAdapter.LaporanH
             e.printStackTrace();
         }
 
-
-        holder.textViewPemasukanLaporan.setText(String.valueOf(currentLaporan.getPemasukan()));
-        holder.textViewPengeluaranLaporan.setText(String.valueOf(currentLaporan.getPengeluaran()));
+        double pemasukan = currentLaporan.getPemasukan();
+        double pengeluaran = currentLaporan.getPengeluaran();
+        DecimalFormat kursIndonesia = (DecimalFormat) DecimalFormat.getCurrencyInstance();
+        DecimalFormatSymbols formatRp = new DecimalFormatSymbols();
+        formatRp.setCurrencySymbol("Rp. ");
+        formatRp.setMonetaryDecimalSeparator(',');
+        formatRp.setGroupingSeparator('.');
+        kursIndonesia.setDecimalFormatSymbols(formatRp);
+        holder.textViewPemasukanLaporan.setText(kursIndonesia.format(pemasukan));
+        holder.textViewPengeluaranLaporan.setText(kursIndonesia.format(pengeluaran));
     }
 
     @Override

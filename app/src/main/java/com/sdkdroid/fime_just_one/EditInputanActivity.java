@@ -67,8 +67,8 @@ public class EditInputanActivity extends AppCompatActivity {
             editTextJudul.setText(intent.getStringExtra(EXTRA_JUDUL));
             editTextKeterangan.setText(intent.getStringExtra(EXTRA_KETERANGAN));
             editTextTanggal.setText(intent.getStringExtra(EXTRA_TANGGAL));
-            editTextPemasukan.setText(String.valueOf(intent.getIntExtra(EXTRA_PEMASUKAN,1)));
-            editTextPengeluaran.setText(String.valueOf(intent.getIntExtra(EXTRA_PENGELUARAN,1)));
+            editTextPemasukan.setText(String.valueOf(intent.getDoubleExtra(EXTRA_PEMASUKAN,1)));
+            editTextPengeluaran.setText(String.valueOf(intent.getDoubleExtra(EXTRA_PENGELUARAN,1)));
         }else{
             setTitle("Add Laporan");
         }
@@ -117,8 +117,8 @@ public class EditInputanActivity extends AppCompatActivity {
         String judul = editTextJudul.getText().toString();
         String keterangan = editTextKeterangan.getText().toString();
         String tanggal = editTextTanggal.getText().toString();
-        int pemasukan = Integer.parseInt(editTextPemasukan.getText().toString());
-        int pengeluaran = Integer.parseInt(editTextPengeluaran.getText().toString());
+        double pemasukan = Double.parseDouble(editTextPemasukan.getText().toString());
+        double pengeluaran = Double.parseDouble(editTextPengeluaran.getText().toString());
 
         if( judul.trim().isEmpty() || keterangan.trim().isEmpty() || tanggal.trim().isEmpty()){
             Toast.makeText(this, "Tolong Input Data Dengan VALID", Toast.LENGTH_SHORT).show();

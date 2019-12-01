@@ -108,8 +108,8 @@ public class InputDataActivity extends AppCompatActivity {
             } catch (ParseException e) {
                 e.printStackTrace();
             }
-            int pemasukan = data.getIntExtra(EditInputanActivity.EXTRA_PEMASUKAN ,1);
-            int pengeluaran = data.getIntExtra(EditInputanActivity.EXTRA_PENGELUARAN, 1);
+            double pemasukan = data.getDoubleExtra(EditInputanActivity.EXTRA_PEMASUKAN ,1);
+            double pengeluaran = data.getDoubleExtra(EditInputanActivity.EXTRA_PENGELUARAN, 1);
 
             Laporan laporan = new Laporan(judul, pemasukan, pengeluaran, tanggal, keterangan);
             laporanViewModel.insert(laporan);
@@ -133,8 +133,8 @@ public class InputDataActivity extends AppCompatActivity {
             } catch (ParseException e) {
                 e.printStackTrace();
             };
-            int pemasukan = data.getIntExtra(EditInputanActivity.EXTRA_PEMASUKAN, 1);
-            int pengeluaran = data.getIntExtra(EditInputanActivity.EXTRA_PENGELUARAN, 1);
+            double pemasukan = data.getDoubleExtra(EditInputanActivity.EXTRA_PEMASUKAN, 1);
+            double pengeluaran = data.getDoubleExtra(EditInputanActivity.EXTRA_PENGELUARAN, 1);
 
             Laporan laporan = new Laporan(judul, pemasukan, pengeluaran, tanggal, keterangan);
             laporan.setId_laporan(id);
