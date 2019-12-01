@@ -37,14 +37,6 @@ public class LaporanRepository {
         new DeleteAllLaporanAsyncTask(laporanDao).execute();
     }
 
-//    public void getPemasukanLaporan(){
-//        new GetPemasukanLaporanAsyncTask(laporanDao).execute();
-//    }
-//
-//    public void getPengeluaranLaporan(){
-//        new GetPengeluaranLaporanAsyncTask(laporanDao).execute();
-//    }
-
     public LiveData<List<Laporan>> getAllLaporan(){
         return allLaporan;
     }
@@ -105,32 +97,5 @@ public class LaporanRepository {
         }
     }
 
-//    private static class GetPemasukanLaporanAsyncTask extends AsyncTask<Void, Void, Void>{
-//        private LaporanDao laporanDao;
-//
-//        private GetPemasukanLaporanAsyncTask(LaporanDao laporanDao){
-//            this.laporanDao = laporanDao;
-//        }
-//
-//        @Override
-//        protected Void doInBackground(Void... voids){
-//            laporanDao.getPemasukan();
-//            return null;
-//        }
-//    }
-//
-//    private static class GetPengeluaranLaporanAsyncTask extends AsyncTask<Void, Void, Void>{
-//        private LaporanDao laporanDao;
-//
-//        private GetPengeluaranLaporanAsyncTask(LaporanDao laporanDao){
-//            this.laporanDao = laporanDao;
-//        }
-//
-//        @Override
-//        protected Void doInBackground(Void... voids){
-//            laporanDao.getPengeluaran();
-//            return null;
-//        }
-//    }
 
 }

@@ -1,6 +1,7 @@
 package com.sdkdroid.fime_just_one.data.Perusahaan;
 
 import androidx.room.Entity;
+import androidx.room.Ignore;
 import androidx.room.PrimaryKey;
 
 import java.util.Date;
@@ -17,6 +18,7 @@ public class Perusahaan {
 
     String alamat_perusahaan;
 
+    @Ignore
     public Perusahaan(String nama_perusahaan, String pemilik_perusahaan, String alamat_perusahaan) {
         this.nama_perusahaan = nama_perusahaan;
         this.pemilik_perusahaan = pemilik_perusahaan;

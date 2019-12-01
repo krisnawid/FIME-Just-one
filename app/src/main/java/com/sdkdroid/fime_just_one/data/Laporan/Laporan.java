@@ -2,10 +2,14 @@ package com.sdkdroid.fime_just_one.data.Laporan;
 
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
+import androidx.room.TypeConverters;
+
+import com.sdkdroid.fime_just_one.data.DataConverter;
 
 import java.util.Date;
 
 @Entity(tableName = "laporan_table")
+@TypeConverters(DataConverter.class)
 public class Laporan {
 
     @PrimaryKey(autoGenerate = true)
@@ -15,11 +19,22 @@ public class Laporan {
 
     int pengeluaran;
 
-    String tanggal;
+    Date tanggal;
 
     String keterangan;
 
-    public Laporan(int pemasukan, int pengeluaran, String tanggal, String keterangan) {
+    String judul;
+
+    public String getJudul() {
+        return judul;
+    }
+
+    public void setJudul(String judul) {
+        this.judul = judul;
+    }
+
+    public Laporan(String judul, int pemasukan, int pengeluaran, Date tanggal, String keterangan) {
+        this.judul = judul;
         this.pemasukan = pemasukan;
         this.pengeluaran = pengeluaran;
         this.tanggal = tanggal;
@@ -50,11 +65,12 @@ public class Laporan {
         this.pengeluaran = pengeluaran;
     }
 
-    public String getTanggal() {
+    public Date getTanggal() {
+
         return tanggal;
     }
 
-    public void setTanggal(String tanggal) {
+    public void setTanggal(Date tanggal) {
         this.tanggal = tanggal;
     }
 

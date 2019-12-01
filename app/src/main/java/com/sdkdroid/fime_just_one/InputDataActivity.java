@@ -23,6 +23,9 @@ import com.sdkdroid.fime_just_one.data.Laporan.Laporan;
 import com.sdkdroid.fime_just_one.data.Laporan.LaporanAdapter;
 import com.sdkdroid.fime_just_one.data.Laporan.LaporanViewModel;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 public class InputDataActivity extends AppCompatActivity {
@@ -80,6 +83,7 @@ public class InputDataActivity extends AppCompatActivity {
             public void onItemClick(Laporan laporan) {
                 Intent intent = new Intent(InputDataActivity.this, EditInputanActivity.class);
                 intent.putExtra(EditInputanActivity.EXTRA_ID, laporan.getId_laporan());
+                intent.putExtra(EditInputanActivity.EXTRA_JUDUL, laporan.getJudul());
                 intent.putExtra(EditInputanActivity.EXTRA_KETERANGAN, laporan.getKeterangan());
                 intent.putExtra(EditInputanActivity.EXTRA_TANGGAL, laporan.getTanggal());
                 intent.putExtra(EditInputanActivity.EXTRA_PENGELUARAN, laporan.getPengeluaran());
@@ -94,12 +98,20 @@ public class InputDataActivity extends AppCompatActivity {
         super.onActivityResult(requestCode, resultCode, data);
 
         if(requestCode == ADD_LAPORAN_REQUEST && resultCode == RESULT_OK){
+            String judul = data.getStringExtra(EditInputanActivity.EXTRA_JUDUL);
             String keterangan = data.getStringExtra(EditInputanActivity.EXTRA_KETERANGAN);
-            String tanggal = data.getStringExtra(EditInputanActivity.EXTRA_TANGGAL);
+            String tanggalString = data.getStringExtra(EditInputanActivity.EXTRA_TANGGAL);
+            SimpleDateFormat format = new SimpleDateFormat("dd-MM-yyyy");
+            Date tanggal = null;
+            try {
+                tanggal = format.parse(tanggalString);
+            } catch (ParseException e) {
+                e.printStackTrace();
+            }
             int pemasukan = data.getIntExtra(EditInputanActivity.EXTRA_PEMASUKAN ,1);
             int pengeluaran = data.getIntExtra(EditInputanActivity.EXTRA_PENGELUARAN, 1);
 
-            Laporan laporan = new Laporan(pemasukan, pengeluaran, tanggal, keterangan);
+            Laporan laporan = new Laporan(judul, pemasukan, pengeluaran, tanggal, keterangan);
             laporanViewModel.insert(laporan);
 
             Toast.makeText(this, "Laporan tersimpan", Toast.LENGTH_SHORT).show();
@@ -111,12 +123,20 @@ public class InputDataActivity extends AppCompatActivity {
                 return;
             }
 
+            String judul = data.getStringExtra(EditInputanActivity.EXTRA_JUDUL);
             String keterangan = data.getStringExtra(EditInputanActivity.EXTRA_KETERANGAN);
-            String tanggal = data.getStringExtra(EditInputanActivity.EXTRA_TANGGAL);
+            String tanggalString = data.getStringExtra(EditInputanActivity.EXTRA_TANGGAL);
+            SimpleDateFormat format = new SimpleDateFormat("dd-MM-yyyy");
+            Date tanggal = null;
+            try {
+                tanggal = format.parse(tanggalString);
+            } catch (ParseException e) {
+                e.printStackTrace();
+            };
             int pemasukan = data.getIntExtra(EditInputanActivity.EXTRA_PEMASUKAN, 1);
             int pengeluaran = data.getIntExtra(EditInputanActivity.EXTRA_PENGELUARAN, 1);
 
-            Laporan laporan = new Laporan(pemasukan, pengeluaran, tanggal, keterangan);
+            Laporan laporan = new Laporan(judul, pemasukan, pengeluaran, tanggal, keterangan);
             laporan.setId_laporan(id);
             laporanViewModel.update(laporan);
             Toast.makeText(this, "Laporan telah diupdate", Toast.LENGTH_SHORT).show();

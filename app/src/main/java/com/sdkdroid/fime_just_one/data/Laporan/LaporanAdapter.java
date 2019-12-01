@@ -10,7 +10,10 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.sdkdroid.fime_just_one.R;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 public class LaporanAdapter extends RecyclerView.Adapter<LaporanAdapter.LaporanHolder> {
@@ -29,8 +32,21 @@ public class LaporanAdapter extends RecyclerView.Adapter<LaporanAdapter.LaporanH
     @Override
     public void onBindViewHolder(@NonNull LaporanHolder holder, int position) {
         Laporan currentLaporan = laporans.get(position);
-        holder.textViewKeteranganLaporan.setText(currentLaporan.getKeterangan());
-        holder.textViewTanggalLaporan.setText(currentLaporan.getTanggal());
+        holder.textViewJudulLaporan.setText(currentLaporan.getJudul());
+        holder.textViewKeteranganLaporan.setText("Keterangan :\n"+currentLaporan.getKeterangan());
+
+        String currentDate = String.valueOf(currentLaporan.getTanggal());
+        SimpleDateFormat format = new SimpleDateFormat("EEE MMM dd HH:mm:ss z YYYY");
+        try {
+            Date newDate = format.parse(currentDate);
+            format = new SimpleDateFormat("yyyy-MM-dd");
+            String tanggal = format.format(newDate);
+            holder.textViewTanggalLaporan.setText("Tanggal : "+tanggal);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+
+
         holder.textViewPemasukanLaporan.setText(String.valueOf(currentLaporan.getPemasukan()));
         holder.textViewPengeluaranLaporan.setText(String.valueOf(currentLaporan.getPengeluaran()));
     }
@@ -54,9 +70,11 @@ public class LaporanAdapter extends RecyclerView.Adapter<LaporanAdapter.LaporanH
         private TextView textViewTanggalLaporan;
         private TextView textViewPemasukanLaporan;
         private TextView textViewPengeluaranLaporan;
+        private TextView textViewJudulLaporan;
 
         public LaporanHolder(View itemView){
             super(itemView);
+            textViewJudulLaporan = itemView.findViewById(R.id.text_judul_input);
             textViewKeteranganLaporan = itemView.findViewById(R.id.text_keterangan_input);
             textViewTanggalLaporan = itemView.findViewById(R.id.text_tanggal_input);
             textViewPemasukanLaporan = itemView.findViewById(R.id.text_pemasukan_input);

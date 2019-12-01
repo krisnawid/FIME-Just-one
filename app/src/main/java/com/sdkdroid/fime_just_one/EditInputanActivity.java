@@ -30,7 +30,10 @@ public class EditInputanActivity extends AppCompatActivity {
             "com.sdkdroid.fime_just_one.EXTRA_PEMASUKAN";
     public static final String EXTRA_PENGELUARAN =
             "com.sdkdroid.fime_just_one.EXTRA_PENGELUARAN";
+    public static final String EXTRA_JUDUL =
+            "com.sdkdroid.fime_just_one.EXTRA_JUDUL";
 
+    private EditText editTextJudul;
     private EditText editTextKeterangan;
     private EditText editTextTanggal;
     private EditText editTextPemasukan;
@@ -46,6 +49,7 @@ public class EditInputanActivity extends AppCompatActivity {
 
         dateFormatter = new SimpleDateFormat("dd-MM-yyyy", Locale.US);
 
+        editTextJudul = findViewById(R.id.edit_text_judul);
         editTextKeterangan = findViewById(R.id.edit_text_keterangan);
         editTextTanggal = findViewById(R.id.edit_text_tanggal);
         editTextPemasukan = findViewById(R.id.edit_text_pemasukan);
@@ -60,6 +64,7 @@ public class EditInputanActivity extends AppCompatActivity {
 
         if(intent.hasExtra(EXTRA_ID)){
             setTitle("Edit Laporan");
+            editTextJudul.setText(intent.getStringExtra(EXTRA_JUDUL));
             editTextKeterangan.setText(intent.getStringExtra(EXTRA_KETERANGAN));
             editTextTanggal.setText(intent.getStringExtra(EXTRA_TANGGAL));
             editTextPemasukan.setText(String.valueOf(intent.getIntExtra(EXTRA_PEMASUKAN,1)));
@@ -109,17 +114,19 @@ public class EditInputanActivity extends AppCompatActivity {
     }
 
     private void saveLaporan(){
+        String judul = editTextJudul.getText().toString();
         String keterangan = editTextKeterangan.getText().toString();
         String tanggal = editTextTanggal.getText().toString();
         int pemasukan = Integer.parseInt(editTextPemasukan.getText().toString());
         int pengeluaran = Integer.parseInt(editTextPengeluaran.getText().toString());
 
-        if(keterangan.trim().isEmpty() || tanggal.trim().isEmpty()){
+        if( judul.trim().isEmpty() || keterangan.trim().isEmpty() || tanggal.trim().isEmpty()){
             Toast.makeText(this, "Tolong Input Data Dengan VALID", Toast.LENGTH_SHORT).show();
             return;
         }
 
         Intent data = new Intent();
+        data.putExtra(EXTRA_JUDUL, judul);
         data.putExtra(EXTRA_KETERANGAN, keterangan);
         data.putExtra(EXTRA_TANGGAL, tanggal);
         data.putExtra(EXTRA_PEMASUKAN, pemasukan);
