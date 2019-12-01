@@ -44,8 +44,8 @@ public class LaporanAdapter extends RecyclerView.Adapter<LaporanAdapter.LaporanH
         SimpleDateFormat format = new SimpleDateFormat("EEE MMM dd HH:mm:ss z YYYY");
         try {
             Date newDate = format.parse(currentDate);
-            format = new SimpleDateFormat("yyyy-MM-dd");
-            String tanggal = format.format(newDate);
+            format = new SimpleDateFormat("d-M-YYYY");
+            String tanggal = format.format(currentLaporan.getTanggal());
             holder.textViewTanggalLaporan.setText("Tanggal : "+tanggal);
         } catch (ParseException e) {
             e.printStackTrace();
