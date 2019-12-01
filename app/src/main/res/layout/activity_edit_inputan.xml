@@ -16,15 +16,6 @@
         android:layout_gravity="center"
         android:src="@mipmap/ic_inout_foreground"/>
 
-    <EditText
-        android:id="@+id/edit_text_keterangan"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Input Keterangan"
-        android:layout_margin="8dp"
-        android:inputType="textMultiLine">
-    </EditText>
-
     <LinearLayout
         android:layout_width="match_parent"
         android:orientation="horizontal"
@@ -51,6 +42,15 @@
             android:src="@drawable/ic_date_range_black_24dp"/>
 
     </LinearLayout>
+
+    <EditText
+        android:id="@+id/edit_text_keterangan"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Input Keterangan"
+        android:layout_margin="8dp"
+        android:inputType="textMultiLine">
+    </EditText>
 
     <EditText
         android:id="@+id/edit_text_pemasukan"

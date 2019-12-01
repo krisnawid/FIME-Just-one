@@ -28,4 +28,11 @@ public interface LaporanDao {
 
     @Query("SELECT * FROM laporan_table")
     LiveData<List<Laporan>> getAllLaporan();
+
+//    @Query("SELECT SUM(pemasukan) FROM laporan_table")
+//    int getPemasukan();
+//
+//    @Query("SELECT SUM(pengeluaran) FROM laporan_table")
+//    void getPengeluaran();
+
 }

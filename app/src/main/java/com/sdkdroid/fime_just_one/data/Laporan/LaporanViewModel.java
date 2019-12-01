@@ -30,9 +30,18 @@ public class LaporanViewModel extends AndroidViewModel {
         repository.delete(laporan);
     }
 
+//    public void getPemasukanLaporan(){
+//        repository.getPemasukanLaporan();
+//    }
+//
+//    public void getPengeluaranLaporan(){
+//        repository.getPengeluaranLaporan();
+//    }
+
     public void deleteAllLaporans(){
         repository.deleteAllLaporans();
     }
+
 
     public LiveData<List<Laporan>> getAllLaporan(){
         return allLaporan;
