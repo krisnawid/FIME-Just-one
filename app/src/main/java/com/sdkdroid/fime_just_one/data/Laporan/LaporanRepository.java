@@ -7,18 +7,22 @@ import androidx.lifecycle.LiveData;
 
 import com.sdkdroid.fime_just_one.data.FIMEAppDatabase;
 
+import java.util.Date;
 import java.util.List;
 
 public class LaporanRepository {
 
     private LaporanDao laporanDao;
     private Laporan laporan;
+    private long tanggalAwal1, tanggaAkhir2;
     LiveData<List<Laporan>> allLaporan;
+    LiveData<List<Laporan>> allLaporanTanggal;
 
     public LaporanRepository(Application application){
         FIMEAppDatabase database = FIMEAppDatabase.getInstance(application);
         laporanDao = database.laporanDao();
         allLaporan = laporanDao.getAllLaporan();
+        allLaporanTanggal = laporanDao.getAllLaporanByTanggal(tanggalAwal1, tanggaAkhir2);
     }
 
     public void insert(Laporan laporan){
@@ -39,6 +43,10 @@ public class LaporanRepository {
 
     public LiveData<List<Laporan>> getAllLaporan(){
         return allLaporan;
+    }
+
+    public LiveData<List<Laporan>> getAllLaporanByTanggal(long tanggalAwal, long tanggalAkhir){
+        return allLaporanTanggal;
     }
 
     private static class InsertLaporanAsyncTask extends AsyncTask<Laporan, Void, Void> {

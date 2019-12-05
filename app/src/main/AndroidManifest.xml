@@ -9,7 +9,9 @@
         android:roundIcon="@mipmap/ic_fime_foreground"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".EditInputanActivity"></activity>
+        <activity android:name=".CompanyProfileActivity"></activity>
+        <activity android:name=".LaporanActivity" />
+        <activity android:name=".EditInputanActivity" />
         <activity android:name=".InputDataActivity" />
         <activity android:name=".PemasukanPengeluaranActivity" />
         <activity android:name=".UpdatePerusahaanActivity" />

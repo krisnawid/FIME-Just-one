@@ -5,17 +5,21 @@ import androidx.annotation.NonNull;
 import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
 
+import java.util.Date;
 import java.util.List;
 
 public class LaporanViewModel extends AndroidViewModel {
     private LaporanRepository repository;
     //    private Perusahaan perusahaan;
     private LiveData<List<Laporan>> allLaporan;
+    private LiveData<List<Laporan>> allLaporanByTanggal;
+    private long tanggalAwal1, tangglAkhir1;
 
     public LaporanViewModel(@NonNull Application application ){
         super(application);
         repository = new LaporanRepository(application);
         allLaporan = repository.getAllLaporan();
+        allLaporanByTanggal = repository.getAllLaporanByTanggal(tanggalAwal1, tangglAkhir1);
     }
 
     public void insert(Laporan laporan){
@@ -46,4 +50,9 @@ public class LaporanViewModel extends AndroidViewModel {
     public LiveData<List<Laporan>> getAllLaporan(){
         return allLaporan;
     }
+
+    public LiveData<List<Laporan>> getAllLaporanByTanggal(long tanggalAwal, long tangglAkhir){
+        return allLaporanByTanggal;
+    }
+
 }

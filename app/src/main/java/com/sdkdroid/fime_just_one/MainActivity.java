@@ -27,9 +27,13 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void handleCetak(View view) {
+        Intent intent = new Intent(this, CompanyProfileActivity.class);
+        startActivity(intent);
     }
 
     public void handleLaporan(View view) {
+        Intent intent = new Intent(this, LaporanActivity.class);
+        startActivity(intent);
     }
 
     @Override

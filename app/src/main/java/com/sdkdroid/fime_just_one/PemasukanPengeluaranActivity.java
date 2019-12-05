@@ -48,9 +48,13 @@ public class PemasukanPengeluaranActivity extends AppCompatActivity {
         Date currentTime = Calendar.getInstance().getTime();
 
         SimpleDateFormat df = new SimpleDateFormat("MMM-yyyy");
+        SimpleDateFormat bulan = new SimpleDateFormat("MM");
+        SimpleDateFormat tahun = new SimpleDateFormat("yyyy");
         String formattedDate = df.format(currentTime);
+        String formatbulan = bulan.format(currentTime);
+        String formattahun = tahun.format(currentTime);
 
-        textViewWaktu.setText(String.valueOf(formattedDate));
+        textViewWaktu.setText(formattedDate);
 
         laporanViewModel = ViewModelProviders.of(this).get(LaporanViewModel.class);
         laporanViewModel.getAllLaporan().observe(this, new Observer<List<Laporan>>() {
