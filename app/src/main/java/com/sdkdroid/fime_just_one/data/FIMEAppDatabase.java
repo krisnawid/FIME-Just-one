@@ -51,7 +51,7 @@ public abstract class FIMEAppDatabase extends RoomDatabase {
 
         @Override
         protected Void doInBackground(Void... voids) {
-//            perusahaanDao.insert(new Perusahaan("Default","Default","Default"));
+            perusahaanDao.insert(new Perusahaan("Go-Juice","Farida","Blimbing"));
             return null;
         }
     }

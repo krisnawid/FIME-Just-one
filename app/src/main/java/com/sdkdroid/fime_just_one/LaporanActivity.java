@@ -178,6 +178,8 @@ public class LaporanActivity extends AppCompatActivity {
                     if (l.getTanggal().after(tanggalAwalDate) && l.getTanggal().before(tanggalAkhirDate)) {
                         totalPemasukan += l.getPemasukan();
                         totalPengeluaran += l.getPengeluaran();
+                    }else{
+                        Toast.makeText(LaporanActivity.this, "kosong", Toast.LENGTH_SHORT).show();
                     }
                 }
                 DecimalFormat kursIndonesia = (DecimalFormat) DecimalFormat.getCurrencyInstance();
